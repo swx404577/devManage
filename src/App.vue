@@ -1,34 +1,26 @@
 <template>
-  <div id="app">
-    <homeSign/>
+  <div style="height:100%;overflow: hidden">
+    <!--路由区域-->
+    <router-view class="router-view"></router-view>
   </div>
 </template>
 
 <script>
-import homeSign from './components/homeSign.vue'
+  import {mapState, mapActions} from 'vuex'
 
-export default {
-  name: 'app',
-  components: {
-    homeSign
+  export default {
+    methods: {},
+    mounted() {
+    },
+    computed: {
+      ...mapState({
+        route: state => state.route,
+        path: state => state.route.path,
+        isLoading: state => state.vux.isLoading
+      })
+    },
+    components: {
+
+    },
   }
-}
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-*{
-  padding: 0;
-  margin: 0;
-}
-html,body{
-  width: 100%;
-  height: 100%;
-}
-</style>
